@@ -1,7 +1,7 @@
-package com.robertoljr.devsuperior_desafio_projeto_spring_boot_estruturado.controllers;
+package com.robertoljr.devsuperior_desafio_projeto_spring_boot_estruturado.controller;
 
 import com.robertoljr.devsuperior_desafio_projeto_spring_boot_estruturado.dto.ProductDTO;
-import com.robertoljr.devsuperior_desafio_projeto_spring_boot_estruturado.services.ProductService;
+import com.robertoljr.devsuperior_desafio_projeto_spring_boot_estruturado.service.ProductService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;

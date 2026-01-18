@@ -1,8 +1,8 @@
-package com.robertoljr.devsuperior_desafio_projeto_spring_boot_estruturado.services;
+package com.robertoljr.devsuperior_desafio_projeto_spring_boot_estruturado.service;
 
 import com.robertoljr.devsuperior_desafio_projeto_spring_boot_estruturado.dto.ProductDTO;
-import com.robertoljr.devsuperior_desafio_projeto_spring_boot_estruturado.entities.Product;
-import com.robertoljr.devsuperior_desafio_projeto_spring_boot_estruturado.repositories.ProductRepository;
+import com.robertoljr.devsuperior_desafio_projeto_spring_boot_estruturado.model.Product;
+import com.robertoljr.devsuperior_desafio_projeto_spring_boot_estruturado.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

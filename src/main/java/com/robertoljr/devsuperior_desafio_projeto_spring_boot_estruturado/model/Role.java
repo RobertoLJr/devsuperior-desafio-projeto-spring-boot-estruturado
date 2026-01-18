@@ -1,4 +1,4 @@
-package com.robertoljr.devsuperior_desafio_projeto_spring_boot_estruturado.entities;
+package com.robertoljr.devsuperior_desafio_projeto_spring_boot_estruturado.model;
 
 import jakarta.persistence.*;
 
