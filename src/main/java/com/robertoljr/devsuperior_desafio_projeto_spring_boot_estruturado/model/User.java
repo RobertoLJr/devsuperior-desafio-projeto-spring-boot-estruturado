@@ -1,15 +1,16 @@
 package com.robertoljr.devsuperior_desafio_projeto_spring_boot_estruturado.model;
 
+import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_user")
-public class User {
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -61,8 +62,40 @@ public class User {
         this.email = email;
     }
 
+    @Override
+    @Nonnull
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return roles;
+    }
+
     public String getPassword() {
         return password;
+    }
+
+    @Override
+    @Nonnull
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return UserDetails.super.isAccountNonExpired();
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return UserDetails.super.isAccountNonLocked();
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return UserDetails.super.isCredentialsNonExpired();
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return UserDetails.super.isEnabled();
     }
 
     public void setPassword(String password) {
@@ -74,7 +107,10 @@ public class User {
     }
 
     public boolean hasRole(String roleName) {
-        return roles.stream().anyMatch(role -> role.getAuthority().equals(roleName));
+        return roles.stream().anyMatch(role -> {
+            assert role.getAuthority() != null;
+            return role.getAuthority().equals(roleName);
+        });
     }
 
     @Override
